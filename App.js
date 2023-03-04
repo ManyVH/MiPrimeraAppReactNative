@@ -58,12 +58,14 @@ export default function App() {
       <TextInput
         style={styles.disenhoCaja}
         defaultValue={materia}
+        editable={!activo}
         onChangeText={(newText) => setMateria(newText)}
         placeholder={"Registra la materia 1"}
       />
       <Text style={styles.indicador}>{'Materia 2'}</Text>
       <TextInput
         style={styles.disenhoCaja}
+        editable={!activo}
         defaultValue={materia2}
         onChangeText={(newText) => setMateria2(newText)}
         placeholder={"Registra la materia 2"}
@@ -73,6 +75,7 @@ export default function App() {
       
       <TextInput
         style={styles.disenhoCaja}
+        editable={!activo}
         defaultValue={materia3}
         onChangeText={(newText) => setMateria3(newText)}
         placeholder={"Registra la materia 3"}
