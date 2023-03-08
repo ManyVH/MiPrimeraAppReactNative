@@ -5,8 +5,6 @@ import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 
 export default function Actividad_6() {
-
-  
   const [datos, setDatos] = useState([
     { key: "Materia 1", color: false },
     { key: "Materia 2", color: false },
@@ -62,14 +60,10 @@ export default function Actividad_6() {
       borderColor: "fffff",
       borderWidth: 1,
       borderRadius: 10,
-      width: 300,
-    },
-    list: {
-      height: 400,
     },
   });
- 
-  let materiaBuscada = ""
+
+  let materiaBuscada = "";
   const Materias = (props) => {
     return (
       <View>
@@ -80,37 +74,31 @@ export default function Actividad_6() {
     );
   };
 
- 
- 
   return (
     <View style={styles.container}>
       <Text style={styles.topbar}>{"Materias"}</Text>
 
-      <ScrollView showsVerticalScrollIndicator="true" style={styles.scroll}>
       <FlatList
-          style={styles.list}
-          data={datos}
-          renderItem={({ item }) => (
-            <Materias nombre={item.key} color={item.color} />
-          )}
-        />
+        data={datos}
+        renderItem={({ item }) => (
+          <Materias nombre={item.key} color={item.color} />
+        )}
+      />
 
-      </ScrollView>
-      <TextInput style={styles.disenhoCaja} 
-      
-      onChangeText={(newText) => materiaBuscada=newText}
-      placeholder={"Buscar una materia"}/>
+      <TextInput
+        style={styles.disenhoCaja}
+        onChangeText={(newText) => (materiaBuscada = newText)}
+        placeholder={"Buscar una materia"}
+      />
       <Button
         onPress={() => {
           for (let index = 0; index < datos.length; index++) {
-            if (datos[index].key ===materiaBuscada) {
-              console.log(datos[index].key)
-              const datosnuevos = [...datos]
-              datosnuevos[index].color = true
-              setDatos(datosnuevos)
-
+            if (datos[index].key === materiaBuscada) {
+              console.log(datos[index].key);
+              const datosnuevos = [...datos];
+              datosnuevos[index].color = true;
+              setDatos(datosnuevos);
             }
-            
           }
         }}
         title={"Revisar materia"}
